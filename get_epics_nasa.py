@@ -28,11 +28,9 @@ def get_epics_nasa(api_key):
 
 
 if __name__ == '__main__':
+    api_key_nasa = os.environ['API_KEY_NASA']
     load_dotenv()
 
     Path('images').mkdir(parents=True, exist_ok=True)
-
-    api_key_nasa = os.environ['API_KEY_NASA']
-    print(api_key_nasa)
 
     get_epics_nasa(api_key_nasa)

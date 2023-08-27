@@ -12,4 +12,4 @@ if __name__ == '__main__':
 
     bot = telegram.Bot(token=token)
 
-    bot.send_message(text='Hello, gays!', chat_id='-1001938602220')
+    bot.send_document(chat_id=chat_id, document=open('images/nasa_apod_0.jpg', 'rb'))

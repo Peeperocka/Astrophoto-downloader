@@ -5,6 +5,8 @@ import argparse
 
 from post_image import post_image
 
+PATH = 'images'
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(
@@ -14,7 +16,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     delay = int(args.delay)*3600
 
-    images = os.walk('images')
+    images = os.walk(PATH)
     for directory_images_list in images:
         images_list = []
         images_list += directory_images_list[-1]

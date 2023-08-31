@@ -5,6 +5,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from supporting_scripts import download_img
 
+PATH = 'images'
+
 
 def get_epics_nasa(api_key):
     params = {
@@ -22,7 +24,7 @@ def get_epics_nasa(api_key):
         image = response['image']
 
         url = f'https://api.nasa.gov/EPIC/archive/natural/{date[0]}/{date[1]}/{date[2]}/png/{image}.png?api_key={api_key}'
-        filepath = f'images/nasa_epic_{num}.png'
+        filepath = f'{PATH}/nasa_epic_{num}.png'
 
         download_img(url, filepath)
 
@@ -31,6 +33,6 @@ if __name__ == '__main__':
     load_dotenv()
     api_key_nasa = os.environ['API_KEY_NASA']
 
-    Path('images').mkdir(parents=True, exist_ok=True)
+    Path(PATH).mkdir(parents=True, exist_ok=True)
 
     get_epics_nasa(api_key_nasa)

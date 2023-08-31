@@ -1,5 +1,5 @@
-import requests
 import os
+import requests
 
 from pathlib import Path
 from dotenv import load_dotenv
@@ -28,8 +28,8 @@ def get_epics_nasa(api_key):
 
 
 if __name__ == '__main__':
-    api_key_nasa = os.environ['API_KEY_NASA']
     load_dotenv()
+    api_key_nasa = os.environ['API_KEY_NASA']
 
     Path('images').mkdir(parents=True, exist_ok=True)
 

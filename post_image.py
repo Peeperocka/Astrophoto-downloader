@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 
-if __name__ == '__main__':
+def post_image(filename):
     load_dotenv()
 
     token = os.environ['TOKEN']
@@ -12,4 +12,7 @@ if __name__ == '__main__':
 
     bot = telegram.Bot(token=token)
 
-    bot.send_document(chat_id=chat_id, document=open('images/nasa_apod_0.jpg', 'rb'))
+    bot.send_document(
+        chat_id=chat_id,
+        document=open(f'images/{filename}', 'rb')
+    )

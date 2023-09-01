@@ -1,14 +1,10 @@
 import telegram
 import os
 
-from dotenv import load_dotenv
 
+def post_image(filename, chat_id):
 
-def post_image(filename):
-    load_dotenv()
-
-    token = os.environ['TOKEN']
-    chat_id = os.environ['CHAT_ID']
+    token = os.environ['TELEGRAM_TOKEN']
 
     bot = telegram.Bot(token=token)
 

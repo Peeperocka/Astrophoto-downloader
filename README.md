@@ -6,8 +6,6 @@ This project contains scripts that help downloading photos from NASA and SpaceX 
 
 ### How to install dependencies
 
-[TODO: tell user where he should get keys, where they should be and how they look like]
-
 Python3 should be already installed. 
 Then use `pip` (or `pip3`, if there is a conflict with Python2) to install dependencies:
 ```
@@ -18,13 +16,13 @@ pip install -r requirements.txt
 
 You need `.env` file with this variables:
 
-- `CHAT_ID={chat id}` - id of telegram chat/group so bot can post pictures
-- `TOKEN={your bot token}` - You need to get your bot token from BotFather
+- `TELEGRAM_TOKEN={your bot token}` - You need to get your bot token from BotFather
 - `API_KEY_NASA={your api key}` - get API key [there](https://api.nasa.gov/)
 
 ## Run
 
 ### Running scripts with console
+
 To run program you must head to files' direcory and type: 
 
 ```
@@ -34,7 +32,9 @@ python script_name.py {arguments if script needs them}
 ### Scripts arguments
 
 - `post_image.py` and `get_epics_nasa.py` do NOT require arguments
-- `post_pictures_endlessly.py` has -delay(or -d) argument that responses for delay between posts, 1 = 1 hour. Default value is 4 hours
+- `post_pictures_endlessly.py` 
+    - has `delay(or -d)` argument that stands for delay between posts, 1 = 1 hour. Default value is 4 hours
+    - has `chatid` argument that stands for telegram chat id there files should be dropped
 - `fetch_spacex_images.py` takes -id argument that stands for lauch ID. If no ID was given, it'll try to get photos from last lauch, if no photos were found, program'll print about it.
 - `get_apods_nasa.py` takes -count argument that stands for count of pictures to download, default value is 1
 

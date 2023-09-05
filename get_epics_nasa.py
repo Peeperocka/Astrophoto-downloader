@@ -18,10 +18,10 @@ def get_epics_nasa(api_key):
     responses.raise_for_status()
     responses = responses.json()
 
-    for num, response in enumerate(responses):
-        date = response['date'].split()
+    for num, reply in enumerate(responses):
+        date = reply['date'].split()
         date = date[0].split(sep='-')
-        image = response['image']
+        image = reply['image']
 
         url = f'https://api.nasa.gov/EPIC/archive/natural/{date[0]}/{date[1]}/{date[2]}/png/{image}.png?api_key={api_key}'
         filepath = f'{PATH}/nasa_epic_{num}.png'

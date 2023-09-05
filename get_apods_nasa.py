@@ -16,13 +16,13 @@ def get_apods_nasa(api_key, count):
         'count': count
     }
 
-    responses = requests.get(url, params=params)
-    responses.raise_for_status()
+    response = requests.get(url, params=params)
+    response.raise_for_status()
 
-    responses = responses.json()
+    response = response.json()
 
-    for num, response in enumerate(responses):
-        photo_url = response['url']
+    for num, reply in enumerate(response):
+        photo_url = reply['url']
         filepath = f'{PATH}/nasa_apod_{num}{get_urls_file_extension(photo_url)}'
         download_img(photo_url, filepath)
 

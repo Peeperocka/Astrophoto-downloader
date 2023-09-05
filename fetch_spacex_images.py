@@ -14,12 +14,9 @@ def fetch_spacex_images(id):
     response.raise_for_status()
     response = response.json()
     photo_url_catalogue = response['links']['flickr']['original']
-    if not photo_url_catalogue:
-        print('No files written in directory because 0 files were given')
-    else:
-        for num, url in enumerate(photo_url_catalogue):
-            filepath = f'{PATH}/spacex_{num}.jpg'
-            download_img(url, filepath)
+    for num, url in enumerate(photo_url_catalogue):
+        filepath = f'{PATH}/spacex_{num}.jpg'
+        download_img(url, filepath)
 
 
 if __name__ == '__main__':
